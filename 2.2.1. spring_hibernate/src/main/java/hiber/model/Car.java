@@ -1,6 +1,14 @@
 package hiber.model;
 
-import javax.persistence.*;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
@@ -11,13 +19,13 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name= "model")
+    @Column(name= "model")
     private String model;
 
     @Column (name = "series")
     private int series;
 
-    @OneToOne (mappedBy = "userCar")
+    @OneToOne(mappedBy = "userCar")
     private User user;
 
     public User getUser() {
